@@ -1,0 +1,31 @@
+server:
+  port: 9000
+spring:
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+  datasource:
+    url: jdbc:mysql://localhost:3306/sakila
+    username: root
+    password: 1234567890
+    driver-class: com.mysql.cj.jdbc.Driver
+    hikari:
+      maximum-pool-size: 10
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      transaction-id-prefix: tx-
+    #      properties:
+    #        enable.idempotence: true
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: test-group
+      enable-auto-commit: false
+      isolation-level: read_committed
+    topics: test-topic
+
