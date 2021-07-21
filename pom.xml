@@ -20,11 +20,11 @@
 
     <dependencies>
 
-        <dependency>
+       <!-- <dependency>
             <groupId>org.apache.kafka</groupId>
             <artifactId>kafka-clients</artifactId>
             <version>2.8.0</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -43,11 +43,11 @@
             <artifactId>mysql-connector-java</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <dependency>
+       <!-- <dependency>
             <groupId>org.springframework.kafka</groupId>
             <artifactId>spring-kafka</artifactId>
-            <version>2.3.7.RELEASE</version>
-        </dependency>
+            <version>2.3.6.RELEASE</version>
+        </dependency>-->
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -61,7 +61,7 @@
             <version>2.0</version>
         </dependency>
 
-        <dependency>
+       <!-- <dependency>
             <groupId>com.springboot</groupId>
             <artifactId>springboot-kafka.producer</artifactId>
             <version>0.1.33-SNAPSHOT</version>
@@ -70,7 +70,7 @@
             <groupId>com.springboot</groupId>
             <artifactId>springboot-kafka.consumer</artifactId>
             <version>0.0.30-SNAPSHOT</version>
-        </dependency>
+        </dependency>-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

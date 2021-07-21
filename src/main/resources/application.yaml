@@ -16,16 +16,16 @@ spring:
     driver-class: com.mysql.cj.jdbc.Driver
     hikari:
       maximum-pool-size: 10
-  kafka:
-    bootstrap-servers: localhost:9092
-    producer:
-      transaction-id-prefix: tx-
-    #      properties:
-    #        enable.idempotence: true
-    consumer:
-      bootstrap-servers: localhost:9092
-      group-id: test-group
-      enable-auto-commit: false
-      isolation-level: read_committed
-    topics: test-topic
+#  kafka:
+#    bootstrap-servers: localhost:9092
+#    producer:
+#      transaction-id-prefix: tx-
+#    #      properties:
+#    #        enable.idempotence: true
+#    consumer:
+#      bootstrap-servers: localhost:9092
+#      group-id: test-group
+#      enable-auto-commit: false
+#      isolation-level: read_committed
+#    topics: test-topic
 

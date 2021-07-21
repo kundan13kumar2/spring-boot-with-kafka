@@ -5,15 +5,14 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
-import org.springframework.kafka.annotation.EnableKafka;
-import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.sql.DataSource;
 
-@EnableKafka
-@EnableTransactionManagement
+//@EnableKafka
+//@EnableTransactionManagement
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.demo", "com.springboot.producer", "com.springboot.consumer"})
+//@ComponentScan(basePackages = {"com.demo", "com.springboot.producer", "com.springboot.consumer"})
+@ComponentScan(basePackages = {"com.demo"})
 public class SpringBootWithKafkaApplication {
 
     public static void main(String[] args) {

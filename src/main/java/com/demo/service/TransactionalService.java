@@ -8,9 +8,7 @@ import com.demo.model.Order;
 import com.demo.model.Retry;
 import com.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -30,12 +28,16 @@ public class TransactionalService {
 
     private final JdbcTemplate jdbcTemplate;
 
-    @Qualifier(value = "nonTxnTemplate")
-    private final KafkaTemplate<String, String> kafkaTemplate;
+//    @Qualifier(value = "nonTxnTemplate")
+//    private final KafkaTemplate<String, String> kafkaTemplate;
 
-    public TransactionalService(JdbcTemplate jdbcTemplate, KafkaTemplate<String, String> kafkaTemplate) {
+/*    public TransactionalService(JdbcTemplate jdbcTemplate, KafkaTemplate<String, String> kafkaTemplate) {
         this.jdbcTemplate = jdbcTemplate;
         this.kafkaTemplate = kafkaTemplate;
+    }*/
+
+    public TransactionalService(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
     }
 
     @Transactional("transactionManager")
@@ -58,7 +60,7 @@ public class TransactionalService {
 
     @Transactional("dstm")
     public String doInSingleTxn(User user) {
-        kafkaTemplate.send("test-topic", user.toString());
+      //  kafkaTemplate.send("test-topic", user.toString());
         jdbcTemplate.execute("insert into User(name,email) values('" + user.getName() + "','" + user.getEmail() + "')");
         //    throw new RuntimeException("Helo");
         //
@@ -66,9 +68,9 @@ public class TransactionalService {
         return "Saved Successfully!!!";
     }
 
-    @Transactional("kafkaTransactionManager")
+   /* @Transactional("kafkaTransactionManager")
     public void sendToKafka(User in) {
         this.kafkaTemplate.send("test-topic1", in.toString());
-    }
+    }*/
 
 }
