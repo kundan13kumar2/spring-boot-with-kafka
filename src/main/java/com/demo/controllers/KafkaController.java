@@ -8,9 +8,16 @@ import com.demo.service.TransactionalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 @RestController
 @RequestMapping(value = "/kafka")
 public class KafkaController {
+
+    AtomicInteger initialVal = new AtomicInteger(1);
+
+    AtomicInteger customerVal = new AtomicInteger(621);
+
 
     @Autowired
     private ProducerImpl producerImpl;
@@ -39,8 +46,9 @@ public class KafkaController {
 
     @PostMapping(value = "/saveEvents")
     public String addEvent(@RequestBody Customer customer) {
+        System.out.println("Atomic Integer number : " + initialVal.getAndIncrement() + " : Current time : " + System.currentTimeMillis());
+        customer.setCustomerId(customerVal.getAndIncrement());
         return txnService.doInTxn(customer);
     }
-
 
 }

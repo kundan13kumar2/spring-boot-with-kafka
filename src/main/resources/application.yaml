@@ -24,8 +24,8 @@ spring:
     #        enable.idempotence: true
     consumer:
       bootstrap-servers: localhost:9092
-      group-id: test-group
+      group-id: demo.sakila.customer-group
       enable-auto-commit: false
       isolation-level: read_committed
-    topics: test-topic
+    topics: demo.sakila.customer
 
