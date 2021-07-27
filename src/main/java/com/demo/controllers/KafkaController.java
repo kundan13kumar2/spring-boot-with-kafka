@@ -2,6 +2,7 @@
 package com.demo.controllers;
 
 import com.demo.model.Customer;
+import com.demo.model.Order;
 import com.demo.model.User;
 import com.demo.service.TransactionalService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,6 +46,11 @@ public class KafkaController {
     @PostMapping(value = "/saveEvents")
     public String addEvent(@RequestBody Customer customer) {
         return txnService.doInTxn(customer);
+    }
+
+    @PostMapping(value = "/saveOrder")
+    public String addEvent(@RequestBody Order order) {
+        return txnService.doInTxnDummy(order);
     }
 
 }

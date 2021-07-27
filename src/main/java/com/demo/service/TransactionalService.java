@@ -40,11 +40,11 @@ public class TransactionalService {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    //, Retry retry
     @Transactional("transactionManager")
-    public String doInTxnDummy(Order order, Retry retry) {
-
+    public String doInTxnDummy(Order order) {
         orderRepo.insert(order);
-        retryRepo.insert(retry);
+        //  retryRepo.insert(retry);
         return "Saved Successfully!!!";
 
     }
@@ -60,7 +60,7 @@ public class TransactionalService {
 
     @Transactional("dstm")
     public String doInSingleTxn(User user) {
-      //  kafkaTemplate.send("test-topic", user.toString());
+        //  kafkaTemplate.send("test-topic", user.toString());
         jdbcTemplate.execute("insert into User(name,email) values('" + user.getName() + "','" + user.getEmail() + "')");
         //    throw new RuntimeException("Helo");
         //
