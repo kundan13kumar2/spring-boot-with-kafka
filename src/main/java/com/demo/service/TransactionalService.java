@@ -38,11 +38,11 @@ public class TransactionalService {
         this.kafkaTemplate = kafkaTemplate;
     }
 
+    //, Retry retry
     @Transactional("transactionManager")
-    public String doInTxnDummy(Order order, Retry retry) {
-
+    public String doInTxnDummy(Order order) {
         orderRepo.insert(order);
-        retryRepo.insert(retry);
+        //  retryRepo.insert(retry);
         return "Saved Successfully!!!";
 
     }

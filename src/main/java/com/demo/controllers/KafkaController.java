@@ -2,6 +2,7 @@
 package com.demo.controllers;
 
 import com.demo.model.Customer;
+import com.demo.model.Order;
 import com.demo.model.User;
 import com.demo.service.ProducerImpl;
 import com.demo.service.TransactionalService;
@@ -42,5 +43,10 @@ public class KafkaController {
         return txnService.doInTxn(customer);
     }
 
+    @PostMapping(value = "/saveOrder")
+    public String addEvent(@RequestBody Order order) {
+        System.out.println("Producer time : " + System.currentTimeMillis());
+        return txnService.doInTxnDummy(order);
+    }
 
 }
