@@ -10,21 +10,24 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
   datasource:
-    url: jdbc:mysql://localhost:3306/db_example
-    username: root
-    password: 1234567890
+    #    url: jdbc:mysql://localhost:3306/db_example
+    #    username: root
+    #    password: 1234567890
+    url: jdbc:mysql://aurora-poc-1.cluster-c4oq3mi118xy.ap-south-1.rds.amazonaws.com:3306/db_example
+    username: admin
+    password: paytm#123
     driver-class: com.mysql.cj.jdbc.Driver
     hikari:
       maximum-pool-size: 10
   kafka:
-    bootstrap-servers: localhost:9092
+    bootstrap-servers: 10.211.46.61:9092
     producer:
       transaction-id-prefix: tx-
     #      properties:
     #        enable.idempotence: true
     consumer:
-      bootstrap-servers: localhost:9092
-      group-id: test-group
+      bootstrap-servers: 10.211.46.61:9092
+      group-id: example
       enable-auto-commit: false
       isolation-level: read_committed
     topics: example.db_example.order
