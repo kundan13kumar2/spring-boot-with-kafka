@@ -1,3 +1,4 @@
+/*
 package com.demo.mapper;
 
 import com.demo.model.Order;
@@ -27,3 +28,4 @@ public interface RetryMyBatisRepository {
             " VALUES (#{eventId}, #{name})")
     public int insert(Retry retry);
 }
+*/

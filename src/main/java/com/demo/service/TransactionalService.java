@@ -1,14 +1,8 @@
 package com.demo.service;
 
-import com.demo.mapper.CustomerMyBatisRepository;
 import com.demo.mapper.OrderMyBatisRepository;
-import com.demo.mapper.RetryMyBatisRepository;
-import com.demo.model.Customer;
 import com.demo.model.Order;
-import com.demo.model.Retry;
-import com.demo.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -20,13 +14,13 @@ public class TransactionalService {
     @Autowired
     private OrderMyBatisRepository orderRepo;
 
-    @Autowired
+/*    @Autowired
     private RetryMyBatisRepository retryRepo;
 
     @Autowired
-    private CustomerMyBatisRepository customerRepo;
+    private CustomerMyBatisRepository customerRepo;*/
 
-    private final JdbcTemplate jdbcTemplate;
+    //private final JdbcTemplate jdbcTemplate;
 
 //    @Qualifier(value = "nonTxnTemplate")
 //    private final KafkaTemplate<String, String> kafkaTemplate;
@@ -36,9 +30,9 @@ public class TransactionalService {
         this.kafkaTemplate = kafkaTemplate;
     }*/
 
-    public TransactionalService(JdbcTemplate jdbcTemplate) {
+/*    public TransactionalService(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
-    }
+    }*/
 
     //, Retry retry
     @Transactional("transactionManager")
@@ -50,7 +44,7 @@ public class TransactionalService {
     }
 
 
-    @Transactional("transactionManager")
+/*    @Transactional("transactionManager")
     public String doInTxn(Customer customer) {
         customerRepo.insert(customer);
         return "Saved Successfully!!!";
@@ -66,7 +60,7 @@ public class TransactionalService {
         //
         //    this.sendToKafka(user);
         return "Saved Successfully!!!";
-    }
+    }*/
 
    /* @Transactional("kafkaTransactionManager")
     public void sendToKafka(User in) {

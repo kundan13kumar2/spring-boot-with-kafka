@@ -22,7 +22,7 @@ public class KafkaController {
     public void sendMessageToKafkaTopic(@RequestParam("message") String message) {
         this.producerImpl.sendMessage(message);
     }
-
+/*
     @GetMapping(value = "/publishTxn")
     public void sendMessageToKafkaTopic(@RequestParam("message") String message, @RequestParam("commit") String commit) {
         boolean isCommit = Boolean.parseBoolean(commit);
@@ -35,7 +35,7 @@ public class KafkaController {
         return "Hello " + name;
     }
 
-    @GetMapping(value = "/saveData")
+    /*@GetMapping(value = "/saveData")
     public String greeting(@RequestParam(value = "name", defaultValue = "World") String name, @RequestParam(value = "email", defaultValue = "abc@gmail.com") String email) {
         User user = new User();
         user.setName(name);
@@ -47,7 +47,7 @@ public class KafkaController {
     public String addEvent(@RequestBody Customer customer) {
         return txnService.doInTxn(customer);
     }
-
+*/
     @PostMapping(value = "/saveOrder")
     public String addEvent(@RequestBody Order order) {
         return txnService.doInTxnDummy(order);

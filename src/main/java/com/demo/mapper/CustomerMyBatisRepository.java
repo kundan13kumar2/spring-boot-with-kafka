@@ -1,3 +1,4 @@
+/*
 package com.demo.mapper;
 
 import com.demo.model.Customer;
@@ -26,3 +27,4 @@ public interface CustomerMyBatisRepository {
             "VALUES (#{customerId}, #{storeId}, #{firstName}, #{lastName}, #{email}, #{addressId}, #{active})")
     public int insert(Customer customer);
 }
+*/
